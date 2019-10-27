@@ -1,0 +1,32 @@
+<!--Begin item -->
+<div class="row movie-content">
+  <div class="col-6 movie-img">
+    <img [src]="phim.hinhAnh" alt="#" />
+  </div>
+  <div class="col-6 movie-txt">
+    <h1>
+      {{ phim.tenPhim }}
+    </h1>
+    <p class="movie-details">
+      {{ phim.moTa }}
+    </p>
+
+    <hr class="hr-line" />
+    <div class="movie-txt-button">
+      <a
+        class="btn btn--white mua-ve"
+        [routerLink]="['/chi-tiet-phim/', phim.maPhim]"
+        ><i class="fa fa-ticket" aria-hidden="true"></i> MUA VÉ</a
+      >
+      <a
+        class="btn btn--white trailer"
+        aria-hidden="true"
+        (click)="beginTrailer(phim)"
+        data-toggle="modal"
+        data-target="#exampleModalLong"
+        ><i class="fa fa-play" aria-hidden="true"></i> TRAILER</a
+      >
+    </div>
+  </div>
+</div>
+<!-- End item -->

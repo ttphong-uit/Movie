@@ -1,0 +1,85 @@
+<div class="footer text-center">
+  <div class="overflow"></div>
+  <div class="container">
+    <div class="main-content">
+      <div class="logo-title">
+        <img src="./assets/img/Logo_footer.png" class="img-fluid" alt="" />
+      </div>
+      <div class="row">
+        <div class="col-3 chinh-sach">
+          <h5>Chính sách & quy định</h5>
+          <ol class="list-unstyled">
+            <li><a href="#">Thỏa thuận sử dụng</a></li>
+            <li><a href="#">Quy chế hoạt động</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+            <li><a href="#">Quyền lợi thành viên</a></li>
+          </ol>
+        </div>
+        <div class="lien-ket col-3">
+          <h5>Liên kết</h5>
+          <div class="d-flex justify-content-center">
+            <a
+              href="https://www.facebook.com/profile.php?id=100004474485332"
+              class="facebook"
+              ><i class="fa fa-facebook" aria-hidden="true"></i
+            ></a>
+            <a href="https://www.youtube.com/user/myclassvn" class="youtube"
+              ><i class="fa fa-youtube" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+        <div class="doi-tac col-3">
+          <h5>Đối tác</h5>
+          <!-- <ng-container *ngIf="mangHeThongRap.length"> -->
+          <a href="#" class="img-doi-tac" *ngFor="let item of mangHeThongRap">
+            <img
+              [src]="item.logo"
+              [alt]="item.tenHeThongRap"
+              class="img-fluid"
+            />
+          </a>
+          <!-- </ng-container> -->
+        </div>
+        <div class="col-3 lien-he text-left">
+          <h5 class="d-flex justify-content-center">Liên hệ</h5>
+          <ol class="list-unstyled">
+            <li>
+              <i class="fa fa-envelope-o" aria-hidden="true"
+                ><span>congduc1199@gmail.com</span></i
+              >
+            </li>
+            <li>
+              <i class="fa fa-envelope-o" aria-hidden="true"
+                ><span>hero.keyboard30@gmail.com</span></i
+              >
+            </li>
+            <li>
+              <i class="fa fa-phone" aria-hidden="true"
+                ><span>0359070925</span></i
+              >
+            </li>
+            <li>
+              <i class="fa fa-phone" aria-hidden="true"
+                ><span>0972100850</span></i
+              >
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="line-mid"></div>
+    <div class="second-content d-flex justify-content-between">
+      <a
+        href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=55561"
+        class="d-inline-block"
+        width="150"
+        ><img src="./assets/img/thong-bao-bo-cong-thuong.png" class="img-fluid"
+      /></a>
+      <div class="text-right">
+        <p>SẢN PHẨM ĐƯỢC TẠO BỞI CÔNG ĐỨC & THANH PHONG</p>
+        <p>ĐỊA CHỈ: 82 UNG VĂN KHIÊM - BÌNH THẠNH, TP.HCM</p>
+        <p>2019 © PDCinema. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </div>
+</div>

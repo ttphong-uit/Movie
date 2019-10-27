@@ -1,0 +1,98 @@
+@import "~src/styles/scss/index.scss";
+::ng-deep .carousel {
+  position: relative;
+  .pgwSlider {
+    .trailer {
+      position: absolute;
+      top: 47%;
+      left: 47%;
+      .fa-play {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid transparent;
+        color: white;
+        border-radius: 50%;
+        line-height: 50px;
+        padding-left: 3px;
+        font-size: 20px;
+        margin: 0 auto;
+        transform: scale(1);
+        transition: all 0.2s linear;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.2);
+          border-color: $color-primary-2;
+          color: $color-primary-2;
+        }
+      }
+    }
+    .ps-current {
+      width: 100% !important;
+      float: none;
+    }
+    .ps-next,
+    .ps-prev {
+      position: absolute;
+      padding: 20px 20px 20px 17px;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      background: transparent;
+      border: 0;
+      transition: 0.3s linear;
+      .ps-prevIcon,
+      .ps-nextIcon {
+        border-color: transparent $color-secondary-2 transparent;
+      }
+      &:hover {
+        .ps-prevIcon,
+        .ps-nextIcon {
+          border-color: transparent $color-primary-2 transparent;
+        }
+      }
+    }
+    .ps-next {
+      .ps-nextIcon {
+        border-width: 15px 0 15px 15px;
+      }
+      &:hover {
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+      }
+    }
+    .ps-prev {
+      left: 0;
+      .ps-prevIcon {
+        border-width: 15px 15px 15px 0;
+      }
+      &:hover {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+      }
+    }
+    .ps-list {
+      display: flex;
+      background-color: white;
+      width: 100%;
+      padding: 0 $pd-0;
+      li {
+        padding: 10px;
+        float: right;
+        height: 100% !important;
+        margin-bottom: 0;
+        position: inherit;
+        &:nth-child(2) {
+          float: left;
+        }
+        img {
+          min-height: 0;
+          border: 2px solid white;
+        }
+      }
+    }
+  }
+}

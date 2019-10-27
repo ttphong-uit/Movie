@@ -1,0 +1,44 @@
+.he-Thong-Rap {
+  margin: 0 100px;
+  background: white;
+  box-shadow: 0 0 10px 0 #00000017;
+  .logoLichChieu {
+    min-height: 650px;
+    border: 1px solid #dee2e6;
+    li {
+      .loGoLichChieu_items {
+        padding: 10 14px;
+        border-radius: 0px;
+        opacity: 0.5;
+        transition: all 0.1s;
+        position: relative;
+        border: none;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          width: calc(100% - 40px);
+          transform: translateX(-50%);
+          border-bottom: 2px solid #fff;
+          border-color: rgba(238, 238, 238, 0.88);
+        }
+        &:hover {
+          opacity: 1;
+          transition: all 0.3s;
+
+          border: none;
+        }
+        &.active {
+          opacity: 1;
+          transition: all 0.1s;
+          border: none;
+        }
+        img {
+          width: 90px;
+          position: relative;
+        }
+      }
+    }
+  }
+}

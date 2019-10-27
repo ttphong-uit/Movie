@@ -1,0 +1,29 @@
+@import "~src/styles/scss/index.scss";
+::ng-deep .home-form {
+  padding: $pd-3 0;
+  height: 700px;
+
+  .mat-tab-group {
+    width: 50%;
+    margin: 0 auto;
+    .mat-ink-bar {
+      display: none !important;
+    }
+    .mat-tab-header {
+      .mat-tab-label {
+        width: 50%;
+        opacity: 1;
+        &.mat-tab-label-active {
+          background: $color-primary-2;
+          color: white;
+        }
+      }
+    }
+    .mat-tab-body {
+      .content {
+        padding: $pd-2 $pd-1;
+        background-color: $color-white-0;
+      }
+    }
+  }
+}

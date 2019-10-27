@@ -1,0 +1,78 @@
+<div class="quan-ly-user">
+  <div class="d-flex justify-content-around align-items-center mb-2">
+    <button
+      mat-raised-button
+      color="primary"
+      data-toggle="modal"
+      data-target="#modalQuanLyThanhVien"
+      (click)="themNguoiDung()"
+    >
+      Thêm người dùng
+    </button>
+    <mat-form-field appearance="outline">
+      <mat-label>Tìm người dùng</mat-label>
+      <input
+        type="text"
+        matInput
+        [value]="keyword"
+        [(ngModel)]="keyword"
+        (keyup)="handleSearch()"
+      />
+    </mat-form-field>
+  </div>
+  <div class="danh-sach-nguoi-dung">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tài Khoản</th>
+          <th>Họ Tên</th>
+          <th>Email</th>
+          <th>Số Điện Thoại</th>
+          <th>Mật Khẩu</th>
+          <th>Mã Loại ND</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="mangNguoiDung">
+          <tr *ngFor="let item of mangNguoiDung; let index = index">
+            <td>{{ index + 1 }}</td>
+            <td>
+              {{ item.taiKhoan }}
+              <i
+                class="fa fa-info"
+                (click)="getInfoUser(item.taiKhoan)"
+                data-toggle="modal"
+                data-target="#modalThongTinTaiKhoan"
+              ></i>
+            </td>
+            <td>{{ item.hoTen }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.soDt }}</td>
+            <td>{{ item.matKhau }}</td>
+            <td>{{ item.maLoaiNguoiDung }}</td>
+            <td>
+              <button
+                mat-raised-button
+                class="mr-1"
+                (click)="suaNguoiDung(item)"
+                data-toggle="modal"
+                data-target="#modalQuanLyThanhVien"
+              >
+                Sửa
+              </button>
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="xoaNguoiDung(item.taiKhoan)"
+              >
+                Xóa
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

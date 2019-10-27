@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~src/styles/scss/index.scss";
+button,
+input {
+  outline: 0 !important;
+  &:focus {
+    box-shadow: none !important;
+  }
+  &:visited {
+    box-shadow: none !important;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-text;
+}

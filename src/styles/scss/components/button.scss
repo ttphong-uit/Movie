@@ -1,0 +1,21 @@
+.btn--white {
+    clip-path: polygon(95% 0, 100% 20%, 80% 100%, 5% 100%, 0 80%, 20% 0);
+    @include button($color-white-0, $color-primary-1, $color-primary-1, $color-white-0, $color-primary, $color-primary);
+}
+
+.btn--white-1 {
+    clip-path: polygon(95% 0, 100% 20%, 80% 100%, 5% 100%, 0 80%, 20% 0);
+    @include button($color-white-0, $color-primary-1, $color-primary-1, $color-white-0, transparent, $color-white-0);
+}
+
+.btn--primary {
+    @include button($color-primary-1, transparent, $color-primary-1, $color-black, transparent, $color-black);
+}
+
+.btn--primary-1 {
+    @include button($color-white-1, $color-primary-1, $color-primary-1, $color-primary-1, transparent, $color-primary-1);
+}
+
+.btn--secondary {
+    @include button($color-white-0, $color-secondary, $color-secondary, $color-white-1, $color-secondary-1, $color-secondary-1);
+}

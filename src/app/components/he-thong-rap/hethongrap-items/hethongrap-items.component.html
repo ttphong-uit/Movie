@@ -1,0 +1,77 @@
+<div class="row  p-0 m-0 hethongrap_items">
+  <div class="col-4 p-0">
+    <ul class="nav nav-tabs hethongrap_items_UL style-7">
+      <ng-container *ngFor="let item of mangLichChieu">
+        <ng-container *ngFor="let i of item.lstCumRap; let index = index">
+          <li class="nav-item hethongrap_items_LI " *ngIf="!maPhim">
+            <a
+              class=" nav-link"
+              [ngClass]="{ active: index == 0 }"
+              data-toggle="tab"
+              href="#tab_{{ chiso }}{{ index }}"
+            >
+              {{ i.tenCumRap }}
+              <p class="mt-2">{{ i.diaChi }}</p>
+            </a>
+          </li>
+          <li
+            class="nav-item hethongrap_items_LI d-none"
+            *ngIf="maPhim && i.danhSachPhim[0].maPhim != maPhim"
+          >
+            <a
+              class=" nav-link "
+              data-toggle="tab"
+              [ngClass]="{ active: index == 0 }"
+              href="#tab_{{ chiso }}{{ index }}"
+            >
+            </a>
+          </li>
+          <li
+            class="nav-item hethongrap_items_LI "
+            *ngIf="maPhim && i.danhSachPhim[0].maPhim == maPhim"
+          >
+            <a
+              class=" nav-link"
+              [ngClass]="{ active: index == handleActive(item.lstCumRap, i) }"
+              data-toggle="tab"
+              href="#tab_{{ chiso }}{{ index }}"
+            >
+              {{ i.tenCumRap }}
+              <p class="mt-2">{{ i.diaChi }}</p>
+            </a>
+          </li>
+        </ng-container>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="col-8 p-0">
+    <div class="tab-content hethongrap_items_contents">
+      <ng-container *ngFor="let item of mangLichChieu">
+        <ng-container *ngFor="let i of item.lstCumRap; let index = index">
+          <ng-container *ngIf="maPhim">
+            <app-lich-chieu-theo-phim
+              [maPhim]="maPhim"
+              [cumRap]="i"
+              class="tab-pane fade show"
+              id="tab_{{ chiso }}{{ index }}"
+              [ngClass]="{ active: index == handleActive(item.lstCumRap, i) }"
+              [chiso]="chiso"
+              [chiso1]="index"
+            ></app-lich-chieu-theo-phim>
+          </ng-container>
+          <ng-container *ngIf="!maPhim">
+            <app-thong-tin-lich-chieu
+              class="tab-pane fade show"
+              [ngClass]="{ active: index == 0 }"
+              id="tab_{{ chiso }}{{ index }}"
+              [chiso]="chiso"
+              [chiso1]="index"
+              [cumRap]="i"
+            >
+            </app-thong-tin-lich-chieu>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+::ng-deep .dashboard {
+  .example-container {
+    width: 100%;
+    background: white;
+  }
+  .mat-drawer-container {
+    overflow: visible !important;
+    .fa-angle-double-left {
+      font-size: 30px;
+    }
+  }
+  .example-sidenav {
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+  }
+  .nav-tabs {
+    border: 0 !important;
+  }
+  .nav-link {
+    border: 0 !important;
+    margin: 50px 0 0;
+    &.active {
+      background: rgba(0, 0, 0, 0.61);
+      color: white;
+    }
+  }
+}

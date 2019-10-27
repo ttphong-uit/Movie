@@ -1,0 +1,72 @@
+<app-modal-phim [flagModal]="flag" [itemSuaPhim]="itemSuaPhim"></app-modal-phim>
+<app-modal></app-modal>
+<app-modal-quan-ly-thanh-vien
+  [userEdit]="userEdit"
+  [taiKhoan]="taiKhoan"
+></app-modal-quan-ly-thanh-vien>
+<div class="dashboard">
+  <button type="button" mat-button (click)="drawer.toggle()">
+    <i class="fa fa-bars"></i>
+  </button>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <i class="fa fa-angle-double-left"></i>
+      </button>
+      <nav>
+        <div class="nav nav-tabs flex-column" id="nav-tab" role="tablist">
+          <a
+            mat-raised-button
+            class="nav-item nav-link active"
+            id="nav-user-tab"
+            data-toggle="tab"
+            href="#nav-user"
+            role="tab"
+            aria-controls="nav-user"
+            aria-selected="true"
+            >Quản lý thành viên</a
+          >
+          <a
+            mat-raised-button
+            class="nav-item nav-link"
+            id="nav-phim-tab"
+            data-toggle="tab"
+            href="#nav-phim"
+            role="tab"
+            aria-controls="nav-phim"
+            aria-selected="false"
+            >Quản lý phim</a
+          >
+        </div>
+      </nav>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="nav-user"
+          role="tabpanel"
+          aria-labelledby="nav-user-tab"
+        >
+          <app-quan-ly-thanh-vien
+            (eventEditUser)="openModalUser($event)"
+            (eventInfoUser)="getInfoUser($event)"
+          >
+          </app-quan-ly-thanh-vien>
+        </div>
+        <div
+          class="tab-pane fade  "
+          id="nav-phim"
+          role="tabpanel"
+          aria-labelledby="nav-phim-tab"
+        >
+          <app-quan-ly-phim
+            (eventEditMovie)="EditMovie($event)"
+            (eventSuaPhim)="suaPhim($event)"
+          ></app-quan-ly-phim>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-container>
+</div>

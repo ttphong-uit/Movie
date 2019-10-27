@@ -1,0 +1,54 @@
+@import "~src/styles/scss/index.scss";
+::ng-deep.dat-ve {
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 15px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0px 0 10px 0 rgba($color: black, $alpha: 0.5);
+  margin-bottom: 50px;
+  .mat-form-field {
+    font-size: $fs-0;
+    padding-right: 2px;
+    padding-left: 7px;
+    border-right: 1px solid #6d6d6d4d;
+    .mat-form-field-wrapper {
+      padding-bottom: 0 !important;
+      .mat-form-field-underline {
+        height: 0;
+      }
+    }
+    .mat-form-field-infix {
+      width: 200px;
+    }
+  }
+  .btn--dat-ve {
+    background-color: $color-primary-2;
+    width: 190px;
+    height: 40px;
+    color: $color-white-0;
+    &:focus {
+      box-shadow: none;
+    }
+    &:hover {
+      background-color: $color-primary-1;
+    }
+    &.default {
+      background-color: $color-secondary-1;
+      cursor: default;
+    }
+  }
+  .mat-focused .mat-form-field-label {
+    color: $color-primary-1 !important;
+  }
+
+  .mat-form-field-ripple {
+    background: none !important;
+  }
+
+  .mat-select:focus .mat-select-trigger .mat-select-arrow {
+    color: $color-primary-1 !important;
+  }
+}

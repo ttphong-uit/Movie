@@ -1,0 +1,33 @@
+.table{
+    td{
+        vertical-align:inherit !important;
+    }
+    .fa-youtube-play{
+        color: red;
+        font-size: 36px;
+        cursor: pointer;
+    }
+    .hinh-anh{
+        width: 70px;
+    }
+    .Btn-chuc-nang{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    // .mo-ta{
+    //     width: 615px;
+    //     text-align: left;
+    // }
+    // .ten-phim{
+    //     width: 100px;
+    // }
+}
+::ng-deep .quan-li-phim{
+    font-size: 10px;
+    text-align: center;
+    .mat-form-field{
+     width: 35%;
+    }
+}
+ 

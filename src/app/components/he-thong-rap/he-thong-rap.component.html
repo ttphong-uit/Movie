@@ -1,0 +1,38 @@
+<div class="he-Thong-Rap ">
+  <ng-container *ngIf="!maPhim">
+    <img src="./assets/img/banner-secasd.jpg" class="img-fluid" />
+  </ng-container>
+  <div class="row p-0 m-0 ">
+    <div class="col-1 p-0">
+      <ul class="nav nav-tabs logoLichChieu">
+        <li
+          class="nav-item"
+          *ngFor="let item of mangHeThongRap; let index = index"
+        >
+          <a
+            class="nav-link loGoLichChieu_items"
+            [ngClass]="{ active: index === 0 }"
+            data-toggle="tab"
+            href="#tab{{ index }}"
+            ><img class="img-fluid" [src]="item.logo" alt="#" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- Tab panes -->
+    <div class="col-11 p-0">
+      <div class="tab-content">
+        <ng-container *ngFor="let item of mangHeThongRap; let index = index">
+          <app-hethongrap-items
+            [chiso]="index"
+            class="tab-pane fade show"
+            [ngClass]="{ active: index === 0 }"
+            id="tab{{ index }}"
+            [itemMaHeThongRap]="item.maHeThongRap"
+          >
+          </app-hethongrap-items>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

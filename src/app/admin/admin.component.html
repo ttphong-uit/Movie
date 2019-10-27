@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <form #formSignin="ngForm" (submit)="_Signin()">
+        <h4 class="display-4">Đăng Nhập</h4>
+        <div class="form-group">
+          <label for="">Tài Khoản</label>
+          <input #taiKhoan="ngModel" name="taiKhoan" type="text" class="form-control" ngModel />
+        </div>
+        <div class="form-group">
+          <label for="">Mật Khẩu</label>
+          <input #matKhau="ngModel" name="matKhau" type="password" class="form-control" ngModel />
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success">Đăng nhập</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

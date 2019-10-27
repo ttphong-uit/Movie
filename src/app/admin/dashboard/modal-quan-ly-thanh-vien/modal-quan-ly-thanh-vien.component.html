@@ -1,0 +1,171 @@
+<div
+  class="modal fade"
+  id="modalQuanLyThanhVien"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalQuanLyThanhVienLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalQuanLyThanhVienLabel">
+          <span *ngIf="userEdit">SỬA NGƯỜI DÙNG</span>
+          <span *ngIf="!userEdit">THÊM NGƯỜI DÙNG</span>
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #formQuanLyThanhVien="ngForm">
+          <div class="form-group">
+            <label for="">Tài Khoản</label>
+            <input
+              [disabled]="userEdit"
+              #taiKhoan="ngModel"
+              name="taiKhoan"
+              type="text"
+              class="form-control"
+              ngModel
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="">Họ tên</label>
+            <input
+              #hoTen="ngModel"
+              name="hoTen"
+              type="text"
+              class="form-control"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Email</label>
+            <input
+              #email
+              name="email"
+              type="text"
+              class="form-control"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="">Số điện thoại</label>
+            <input #soDt name="soDt" type="text" class="form-control" ngModel />
+          </div>
+          <div class="form-group">
+            <label for="">Mật khẩu</label>
+            <input
+              #matKhau="ngModel"
+              name="matKhau"
+              type="password"
+              class="form-control"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="">loại người dùng</label>
+            <select
+              [(ngModel)]="user.maLoaiNguoiDung"
+              #maLoaiNguoiDung="ngModel"
+              name="maLoaiNguoiDung"
+              class="form-control"
+              ngModel
+            >
+              <option value="KhachHang">Khách Hàng</option>
+              <option value="QuanTri">Quản Trị</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mat-raised-button data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          mat-raised-button
+          color="accent"
+          (click)="handleOnSubmit()"
+        >
+          <span *ngIf="userEdit">Cập Nhập Người Dùng</span>
+          <span *ngIf="!userEdit">Thêm Người Dùng</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- thong tin tai khoan -->
+<div
+  class="modal fade"
+  id="modalThongTinTaiKhoan"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalThongTinTaiKhoanLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row" *ngIf="infoUser">
+          <div class="col-4">
+            <div class="info-user">
+              <p>Tài Khoản: {{ infoUser.taiKhoan }}</p>
+              <p>Họ Tên: {{ infoUser.hoTen }}</p>
+              <p>Email: {{ infoUser.email }}</p>
+              <p>Số Điện Thoại: {{ infoUser.soDT }}</p>
+            </div>
+          </div>
+          <div class="col-8 border-left">
+            <div class="info-ticket">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Số ghế</th>
+                    <th>Giá vé</th>
+                    <th>Ngày đặt</th>
+                    <th>Thời gian</th>
+                    <th>Phim</th>
+                    <th>Hệ thống rạp</th>
+                    <th>Cụm rạp</th>
+                    <th>Rạp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of infoUser.thongTinDatVe">
+                    <td>{{ item.ghe.tenGhe }}</td>
+                    <td>{{ item.giaVe }}</td>
+                    <td>{{ item.ngayDat | date: "dd/MM/yyyy" }}</td>
+                    <td>{{ item.ngayDat | date: "hh:mm" }}</td>
+                    <td>{{ item.tenPhim }}</td>
+                    <td>{{ item.ghe.tenHeThongRap }}</td>
+                    <td>{{ item.ghe.tenCumRap }}</td>
+                    <td>{{ item.ghe.tenRap }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

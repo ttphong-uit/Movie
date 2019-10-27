@@ -1,0 +1,60 @@
+<section class="phim-content">
+  <div class="owl-carousel owl-theme">
+    <div class="item">
+      <img class="img-fluid"
+        src="https://cinestar.com.vn/pictures/webimages/1Banner/1Promotion/340/tẹt-ga--1920x340px--01.jpg" alt="#" />
+    </div>
+    <div class="item">
+      <img src="https://cinestar.com.vn/pictures/webimages/1Banner/1Promotion/340/c_monday--1920x340px--01.jpg"
+        alt="" />
+    </div>
+    <div class="item">
+      <img src="https://cinestar.com.vn/pictures/webimages/1Banner/1Promotion/340/c'tuesday--1920x340px--01.jpg"
+        alt="" />
+    </div>
+    <div class="item">
+      <img src="https://cinestar.com.vn/pictures/webimages/1Banner/1Promotion/340/c_ten--1920x340px--01.jpg" alt="" />
+    </div>
+    <div class="item">
+      <img src="https://cinestar.com.vn/pictures/webimages/1Banner/1Promotion/340/c_member--1920x340px--01.jpg"
+        alt="" />
+    </div>
+  </div>
+  <div class="container">
+    <app-dat-ve-nhanh></app-dat-ve-nhanh>
+  </div>
+
+  <div class="now-showing-movie">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+          aria-selected="true">Đang chiếu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile"
+          aria-selected="false">Sắp chiếu</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="home">
+        <div class="row mb-3">
+          <app-item-phim class="col-6 movie-items " *ngFor="let item of danhSachPhim | slice: 0:9" [phim]="item">
+          </app-item-phim>
+        </div>
+      </div>
+      <div class="tab-pane container fade" id="menu1">
+        <div class="row mb-3">
+          <app-item-phim class="col-6 movie-items " *ngFor="let item of danhSachPhim | slice: 11:danhSachPhim.length"
+            [phim]="item">
+          </app-item-phim>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container HeThongRap">
+    <app-he-thong-rap></app-he-thong-rap>
+  </div>
+  <app-modal></app-modal>
+</section>
+
+<router-outlet></router-outlet>

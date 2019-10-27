@@ -1,0 +1,106 @@
+@import "~src/styles/scss/index.scss";
+.header {
+  font-family: $font-title;
+  background-color: $color-white-0;
+  padding: 0 $pd-0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  z-index: 999999;
+  opacity: 1;
+  .logo {
+    padding: 7px 0;
+    img {
+      width: 100px;
+      cursor: pointer;
+    }
+  }
+  .header-navbar {
+    display: flex;
+    justify-content: center;
+    .navbar {
+      background: none !important;
+      .navbar-nav {
+        .nav-item,
+        .hide {
+          background-color: transparent;
+          position: relative;
+          padding: 0;
+          margin-left: 2px;
+          .nav-link {
+            @include text($color-black, 15px, $fw-bold-0);
+            cursor: pointer;
+          }
+          &::before {
+            content: "";
+            @include absolute_bottom(0, 0, 100%, 2px);
+            transform: scaleX(0);
+            transition: transform 0.2s linear;
+          }
+          &:hover {
+            .nav-link {
+              color: $color-primary-1;
+            }
+          }
+        }
+      }
+    }
+  }
+  .login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: $font-text;
+    a {
+      text-decoration: none;
+      @include text($color-black, 15px, $fw-bold-0);
+      display: flex;
+      align-items: baseline;
+      cursor: pointer;
+      transition: all 0.2s linear;
+      i {
+        margin-right: 10px;
+        font-size: 25px;
+        color: #989898;
+        transition: all 0.2s linear;
+      }
+      &:hover {
+        color: $color-primary-2;
+        i {
+          color: $color-primary-2;
+        }
+      }
+    }
+    .username {
+      position: relative;
+      cursor: context-menu;
+      small {
+        margin-top: 4px;
+        margin-left: 5px;
+        cursor: pointer;
+        position: absolute;
+        bottom: -30px;
+        right: 0;
+        display: none;
+        opacity: 1;
+        transition: all 0.2s linear;
+        @include text(white, $fs-0 - 2, 500);
+        background: #b7b7b7;
+        padding: 7px 20px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        color: white;
+        font-family: $font-title;
+        &:hover {
+          color: white;
+        }
+      }
+      &:hover {
+        small {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

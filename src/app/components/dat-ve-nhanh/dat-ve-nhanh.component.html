@@ -1,0 +1,29 @@
+<div class="dat-ve">
+  <div>
+    <ng-container *ngFor="let item of select; let index = index">
+      <mat-form-field>
+        <mat-label>{{ item.label }}</mat-label>
+        <mat-select [(value)]="item.value" (selectionChange)="getInfo()">
+          <mat-option *ngIf="index !== 0 && !item.option.length">{{
+            item.err
+          }}</mat-option>
+          <ng-container *ngFor="let i of item.option">
+            <mat-option [value]="i.maPhim" *ngIf="index === 0">{{
+              i.tenPhim
+            }}</mat-option>
+            <mat-option [value]="i" *ngIf="index !== 0 && item.option.length">{{
+              i
+            }}</mat-option>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+  </div>
+  <button
+    class="btn btn--dat-ve "
+    [ngClass]="{ default: !statusLichChieu }"
+    (click)="datVe()"
+  >
+    ĐẶT VÉ NGAY
+  </button>
+</div>

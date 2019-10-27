@@ -1,0 +1,84 @@
+@import "~src/styles/scss/index.scss";
+.pic {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  width: 320px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .overflow {
+    @include absolute(-100px, -200px, 700px, 700px);
+    opacity: 0.7;
+    background: linear-gradient(to bottom, $color-secondary, black);
+    z-index: 1;
+    transform: scale(0);
+    transition: all 0.2s linear;
+    transform-origin: center;
+  }
+  .contents {
+    @include absolute(0, 0, 100%, 100%);
+    padding: $pd-2;
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s linear;
+    transition-delay: 0s;
+    color: $color-white-0;
+    h2 {
+      margin-top: 10px;
+      text-shadow: 3px 3px 6px $color-black;
+      font-family: $font-title;
+      font-weight: $fw-bold-0;
+      @include text-overflow(3);
+    }
+    .trailer {
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+    .btn--white {
+      width: 150px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      margin-left: -18px;
+      transition: 0.3s;
+      &.mua-ve {
+        margin-right: -11px;
+      }
+      &.trailer {
+        margin-left: -11px;
+      }
+    }
+    p {
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-size: $fs-1;
+      font-family: $font-text;
+      &.mo-ta {
+        font-size: $fs-0 - 2;
+        height: 180px;
+      }
+    }
+    .star {
+      opacity: 0.5;
+      color: $color-secondary-2;
+      margin-right: 3px;
+    }
+    .starActive {
+      opacity: 1;
+      color: gold;
+    }
+  }
+  &:hover {
+    .overflow {
+      transform: scale(1);
+      transition-delay: 0;
+    }
+    .contents {
+      opacity: 1;
+      transform: scale(1);
+      transition-delay: 0.2s;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<ul class="nav nav-tabs thong-tin-lich-chieu style-7" id="myTab" role="tablist">
+  <li class="nav-item col-2" *ngFor="let item of mangNgay; let index = index">
+    <a
+      class="nav-link lich-chieu-theo-phim_a"
+      [ngClass]="{ active: index === 0 }"
+      id="home-tab"
+      data-toggle="tab"
+      href="#ngay_{{ chiso }}{{ chiso1 }}{{ index }}"
+      role="tab"
+      aria-controls="home"
+      aria-selected="true"
+    >
+      <span class="d-block">{{ item | date: "EEEE" }}</span>
+      <span class="date">{{ item | date: "dd-MM" }}</span>
+    </a>
+  </li>
+</ul>
+<div class="tab-content thong-tin-lich-chieu_content" id="myTabContent">
+  <div
+    class="tab-pane fade show"
+    [ngClass]="{ active: index === 0 }"
+    id="ngay_{{ chiso }}{{ chiso1 }}{{ index }}"
+    role="tabpanel"
+    aria-labelledby="home-tab"
+    *ngFor="let item of mangNgay; let index = index"
+  >
+    <div class="thong-tin-phim" *ngFor="let i of thongTinLichChieu">
+      <div class="d-flex info-movie">
+        <img [src]="i.hinhAnh" alt="" />
+        <div>
+          <p>
+            <span class="btn-chi-tiet" (click)="goToDetailMovie(i.maPhim)"
+              >chi tiết</span
+            >{{ i.tenPhim }}
+          </p>
+          <span
+            >120 phút - {{ i.danhGia
+            }}<i class="fa fa-star" aria-hidden="true"></i> - khởi chiếu:
+            {{ i.ngayKhoiChieu | date: "dd/MM/yyyy" }}</span
+          >
+        </div>
+      </div>
+      <div class="suat-chieu">
+        <div class="img-2d">
+          <img src="./assets/img/2D.png" alt="" />
+        </div>
+        <div class="gio-chieu">
+          <div class="col-2" *ngFor="let j of i.mangNgayChieuGioChieu">
+            <p
+              *ngIf="item === j.slice(0, 10)"
+              (click)="goToBuyTicket(j, i.maRap)"
+            >
+              {{ j | date: "hh:mm" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="pic">
+  <div class="pic">
+    <img [src]="phim.hinhAnh" />
+  </div>
+  <div class="overflow"></div>
+  <div class="contents">
+    <div style="height:60%">
+      <h2>{{ phim.tenPhim }}</h2>
+    </div>
+    <a
+      class="btn btn--white mua-ve"
+      [routerLink]="['/chi-tiet-phim/', phim.maPhim]"
+      ><i class="fa fa-ticket" aria-hidden="true"></i> MUA VÉ</a
+    >
+    <a
+      class="btn btn--white trailer"
+      aria-hidden="true"
+      (click)="beginTrailer(phim)"
+      data-toggle="modal"
+      data-target="#exampleModalLong"
+      ><i class="fa fa-play" aria-hidden="true"></i> TRAILER</a
+    >
+
+    <p>
+      <small>Đánh giá: </small>
+      <i
+        class="fa fa-star star"
+        aria-hidden="true"
+        [ngClass]="{ starActive: phim.danhGia >= 0.5 }"
+      ></i>
+      <i
+        class="fa fa-star star"
+        aria-hidden="true"
+        [ngClass]="{ starActive: phim.danhGia >= 1.5 }"
+      ></i>
+      <i
+        class="fa fa-star star"
+        aria-hidden="true"
+        [ngClass]="{ starActive: phim.danhGia >= 2.5 }"
+      ></i>
+      <i
+        class="fa fa-star star"
+        aria-hidden="true"
+        [ngClass]="{ starActive: phim.danhGia >= 3.5 }"
+      ></i>
+      <i
+        class="fa fa-star star"
+        aria-hidden="true"
+        [ngClass]="{ starActive: phim.danhGia >= 4.5 }"
+      ></i>
+    </p>
+    <p>
+      <small>Ngày khởi chiếu:</small>
+      {{ phim.ngayKhoiChieu | date: "dd-MM-yy" }}
+    </p>
+  </div>
+</div>

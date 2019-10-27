@@ -1,0 +1,41 @@
+::ng-deep .quan-ly-user {
+  font-size: 10px;
+  mat-form-field {
+    width: 25%;
+  }
+  i {
+    position: relative;
+    display: inline-flex;
+    border-radius: 50%;
+    background: #0000008c;
+    color: white;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    &::after {
+      content: "detail";
+      position: absolute;
+      top: 0;
+      right: -45px;
+      height: 100%;
+      color: white;
+      background-color: black;
+      padding: 0 10px;
+      border-radius: 6px;
+      opacity: 0.5;
+      display: none;
+      align-items: center;
+    }
+    &:hover {
+      background: black;
+      &::after {
+        display: flex;
+        opacity: 1;
+      }
+    }
+  }
+}

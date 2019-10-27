@@ -1,0 +1,105 @@
+@import "~src/styles/scss/index.scss";
+::ng-deep .home-phim {
+  text-align: center;
+  padding: $pd-0 0 $pd-3;
+  background-position: center;
+  background-size: cover;
+  .nav-tabs {
+    border: 0;
+    justify-content: center;
+    margin-bottom: 50px;
+    align-items: center;
+    .nav-link {
+      color: black;
+      font-weight: $fw-bold-0;
+      font-size: 20px;
+      transition: all 0.2s linear;
+    }
+    .nav-link.active,
+    .nav-link:hover {
+      font-size: 24px;
+    }
+    .nav-link.active {
+      color: $color-primary-2;
+    }
+    .nav-link,
+    .nav-link:focus,
+    .nav-link:hover,
+    .nav-link.active {
+      border: 0;
+    }
+  }
+  h3 {
+    @include text($color-white-1, $fs-4, $fw-bold-1);
+    text-shadow: 0 1px 10px $color-black;
+    margin-bottom: 50px;
+  }
+  .my-flipster {
+    width: 100%;
+    height: 500px;
+    .flipster__nav {
+      display: none;
+    }
+    .flipster__button {
+      color: $color-primary;
+    }
+  }
+  $ease: cubic-bezier(0.2, 1, 0.3, 1);
+  .flipster__button {
+    position: absolute;
+    top: 50%;
+    outline: none;
+    svg {
+      width: 40px;
+      height: auto;
+      margin: 0 2rem;
+      cursor: pointer;
+      overflow: visible;
+      polygon,
+      path {
+        transition: all 0.5s $ease;
+      }
+      &:hover polygon,
+      &:hover path {
+        transition: all 1s $ease;
+        color: $color-primary-2;
+      }
+      &:hover .arrow {
+        animation: arrow-anim 1s infinite;
+      }
+      &:hover .arrow-fixed {
+        animation: arrow-fixed-anim 1s infinite;
+      }
+    }
+  }
+  .flipster__button--next {
+    right: -35px;
+  }
+  .flipster__button--prev {
+    left: -35px;
+  }
+  @keyframes arrow-anim {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    5% {
+      transform: translateX(-0.1rem);
+    }
+    100% {
+      transform: translateX(1rem);
+      opacity: 0;
+    }
+  }
+  @keyframes arrow-fixed-anim {
+    5% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

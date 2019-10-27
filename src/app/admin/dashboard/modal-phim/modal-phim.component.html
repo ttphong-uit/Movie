@@ -1,0 +1,68 @@
+<!-- Modal Thêm Phim -->
+<div class=" modal-Phim">
+    <div class="modal fade " id="ModalPhim" tabindex="-1" role="dialog" aria-labelledby="ModalPhim" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-white">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #formQuanLiPhim="ngForm">
+                        <div class="form-group">
+                            <label>Mã Phim</label>
+                            <input name="maPhim" type="text" ngModel #maPhim="ngModel" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Tên Phim</label>
+                            <input name="tenPhim" type="text" ngModel #tenPhim="ngModel" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Bí Danh</label>
+                            <input name="biDanh" type="text" ngModel #biDanh="ngModel" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Trailer</label>
+                            <input name="trailer" type="text" ngModel #trailer="ngModel" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Hình Ảnh</label>
+                            <input name="hinhAnh" type="text" ngModel #hinhAnh="ngModel" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Mô Tả</label>
+                            <input name="moTa" type="text" ngModel #moTa="ngModel" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Mã Nhóm</label>
+                            <input name="maNhom" type="text" ngModel #maNhom="ngModel" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Ngày Khởi Chiếu</label>
+                            <input name="ngayKhoiChieu" type="text" ngModel #ngayKhoiChieu="ngModel"
+                                class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Đánh giá</label>
+                            <input name="danhGia" type="text" ngModel #danhGia="ngModel" class="form-control" />
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group text-center">
+
+                        <button class=" mr-2" mat-raised-button data-dismiss="modal" aria-label="Close">
+                            Cancel
+                        </button>
+                        <button mat-raised-button color="accent" type="submit" (click)="_SubmitForm()">{{name}}</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

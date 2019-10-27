@@ -1,0 +1,21 @@
+@import "~src/styles/scss/index.scss";
+.book {
+  background-position: center;
+  background-size: cover;
+  .row {
+    width: 100%;
+    margin: 0px;
+    overflow: hidden;
+    .hang {
+      margin-top: 85px;
+      p {
+        width: 25px;
+        height: 40px;
+        margin: 0 10px 10px;
+      }
+    }
+    .col-3 {
+      padding: 0;
+    }
+  }
+}

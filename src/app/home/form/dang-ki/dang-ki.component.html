@@ -1,0 +1,34 @@
+<div class="dang-ki">
+  <form>
+    <mat-form-field appearance="outline" [color]="red">
+      <mat-label>Họ & Tên</mat-label>
+      <input matInput type="text" [formControl]="hoTen" />
+      <mat-error *ngIf="hoTen.invalid">{{ getErrorMessage(hoTen) }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Tài Khoản"</mat-label>
+      <input matInput type="text" [formControl]="taiKhoan" />
+      <mat-error *ngIf="taiKhoan.invalid">{{
+        getErrorMessage(taiKhoan)
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Mật Khẩu</mat-label>
+      <input matInput type="password" [formControl]="matKhau" />
+      <mat-error *ngIf="matKhau.invalid">{{
+        getErrorMessage(matKhau)
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>"Email</mat-label>
+      <input matInput type="text" [formControl]="email" />
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage(email) }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Số Điện Thoại</mat-label>
+      <input matInput type="text" [formControl]="soDT" />
+      <mat-error *ngIf="soDT.invalid">{{ getErrorMessage(soDT) }}</mat-error>
+    </mat-form-field>
+    <button mat-button type="submit" (click)="signUp()">ĐĂNG KÍ</button>
+  </form>
+</div>

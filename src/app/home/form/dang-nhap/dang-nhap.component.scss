@@ -1,0 +1,24 @@
+@import "~src/styles/scss/index.scss";
+::ng-deep .dang-nhap {
+  .mat-form-field.mat-focused .mat-form-field-label,
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #fdc19f;
+  }
+  mat-form-field {
+    width: 100%;
+    padding-bottom: 5px;
+    border: 0;
+  }
+  button {
+    height: 60px;
+    margin-top: 20px;
+    width: 100%;
+    background: linear-gradient(to right, #fd7f35, #ea5904, #fd7f35);
+    color: white;
+    font-size: 20px;
+  }
+}
+
+::ng-deep.swal2-styled:focus {
+  box-shadow: none;
+}

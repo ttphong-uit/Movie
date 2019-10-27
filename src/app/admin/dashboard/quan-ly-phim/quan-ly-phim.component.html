@@ -1,0 +1,52 @@
+<div class="quan-li-phim">
+    <div class="d-flex justify-content-around align-items-center mb-2">
+        <button mat-raised-button color="primary" data-toggle="modal" data-target="#ModalPhim" (click)="themPhim()">Thêm
+            Phim</button>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="Tên Phim" [value]="keyword" [(ngModel)]="keyword" (keyup)="handleSearch()">
+        </mat-form-field>
+    </div>
+    <table class="table ">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã Phim</th>
+                <th>Tên Phim</th>
+                <th>Trailer</th>
+                <th>Hình Ảnh</th>
+                <th>Mô Tả</th>
+                <th>Mã Nhóm</th>
+                <th>Ngày Khởi Chiếu</th>
+                <th>Đánh Giá</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of mangDanhSachPhim, let index = index">
+                <td>{{index+1}}</td>
+                <td>{{item.maPhim}}</td>
+                <td class="ten-phim">{{item.tenPhim}}</td>
+                <td> <i class="fa fa-youtube-play Trailer" aria-hidden="true" (click)=beginTrailerMovie(item)
+                        data-toggle="modal" data-target="#exampleModalLong"></i></td>
+                <td><img class="hinh-anh" [src]="item.hinhAnh" alt="#"></td>
+                <td class="mo-ta">{{item.moTa}}</td>
+                <td>{{item.maNhom}}</td>
+                <td>{{item.ngayKhoiChieu | date: "dd-MM-yyyy"}}</td>
+                <td>{{item.danhGia}}</td>
+                <td>
+                    <div class="Btn-chuc-nang">
+                        <button class="mr-2 " mat-raised-button (click)="suaPhim(item)" data-toggle="modal"
+                            data-target="#ModalPhim">Sửa</button>
+                        <button mat-raised-button color="warn" (click)="xoaPhim(item)">Xóa</button>
+                    </div>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+<!-- Modal -->

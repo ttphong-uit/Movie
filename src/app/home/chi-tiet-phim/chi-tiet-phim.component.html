@@ -1,0 +1,135 @@
+<ng-container *ngIf="movie">
+  <section class="chi-tiet-phim">
+    <div class="container">
+      <div class="contents">
+        <div class="main-content">
+          <div class="pic">
+            <div class="trailer">
+              <i
+                class="fa fa-play "
+                aria-hidden="true"
+                (click)="beginTrailer(movie)"
+                data-toggle="modal"
+                data-target="#exampleModalLong"
+              ></i>
+            </div>
+            <img [src]="movie.hinhAnh" alt="" />
+          </div>
+          <div class="info-main">
+            <h3>{{ movie.tenPhim }}</h3>
+            <p>
+              <small>Ngày khởi chiếu: </small
+              >{{ movie.ngayKhoiChieu | date: "dd-MM-yyyy" }}
+            </p>
+            <p><small>Thời lượng: </small>{{ lichChieu[0].thoiLuong }} phút</p>
+            <p><small>Thể loại: </small> Hành động, phiêu lưu</p>
+            <p><small>Định dạng : </small> 2D/Digital</p>
+            <p><small> Quốc gia sản xuất:</small> Mỹ</p>
+          </div>
+
+          <div class="danh-gia">
+            <div class="danhgia-circle">
+              <span> {{ movie.danhGia }}.0 </span>
+            </div>
+            <div class="danhgia-star">
+              <i
+                class="fa fa-star star"
+                aria-hidden="true"
+                [ngClass]="{ starActive: movie.danhGia >= 0.5 }"
+              ></i>
+              <i
+                class="fa fa-star star"
+                aria-hidden="true"
+                [ngClass]="{ starActive: movie.danhGia >= 1.5 }"
+              ></i>
+              <i
+                class="fa fa-star star"
+                aria-hidden="true"
+                [ngClass]="{ starActive: movie.danhGia >= 2.5 }"
+              ></i>
+              <i
+                class="fa fa-star star"
+                aria-hidden="true"
+                [ngClass]="{ starActive: movie.danhGia >= 3.5 }"
+              ></i>
+              <i
+                class="fa fa-star star"
+                aria-hidden="true"
+                [ngClass]="{ starActive: movie.danhGia >= 4.5 }"
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="table_Hethongrap">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#LichChieu"
+                >Lịch Chiếu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#ThongTin"
+                >Thông Tin</a
+              >
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane fade show active he-Thong-Rap" id="LichChieu">
+              <app-he-thong-rap></app-he-thong-rap>
+            </div>
+            <div class="tab-pane fade" id="ThongTin">
+              <div class="row">
+                <div class="col-6">
+                  <p><small> Tên Phim:</small> {{ movie.tenPhim }}</p>
+                  <p>
+                    <small>Ngày Khởi Chiếu: </small>
+                    {{ movie.ngayKhoiChieu | date: "dd-MM-yyyy" }}
+                  </p>
+                  <p>
+                    <small> Đánh giá: </small> {{ movie.danhGia }}
+                    <i
+                      class="fa fa-star "
+                      style="color: yellow"
+                      aria-hidden="true"
+                    ></i>
+                  </p>
+                  <p>
+                    <small> Thời Lượng :</small>
+                    {{ lichChieu[0].thoiLuong }} phút
+                  </p>
+                </div>
+                <div class="col-6">
+                  <small>
+                    Nội Dung:
+                  </small>
+                  <p>
+                    {{ movie.moTa }}
+                  </p>
+                </div>
+              </div>
+              <div class="movie">
+                <ng-container *ngIf="movieTrailer">
+                  <iframe
+                    class="iframe-trailer"
+                    width="100%"
+                    height="500px"
+                    [src]="movieTrailer"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-modal></app-modal>
+  </section>
+</ng-container>

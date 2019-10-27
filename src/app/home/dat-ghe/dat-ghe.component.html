@@ -1,0 +1,25 @@
+<section class="book">
+  <div class="book-content">
+    <div class="row">
+      <div class="col-9">
+        <ng-container *ngIf="danhSachGhe">
+          <app-list-ghe
+            [dataLichChieu]="dataLichChieu"
+            [danhSachGhe]="danhSachGhe"
+            [maGheHuy]="maGheHuy"
+          >
+          </app-list-ghe>
+        </ng-container>
+      </div>
+      <div class="col-3">
+        <ng-container *ngIf="dataLichChieu">
+          <app-bill
+            [dataLichChieu]="dataLichChieu"
+            [maLichChieu]="maLichChieu"
+            (eventHuyGhe)="viTriHuy($event)"
+          ></app-bill>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

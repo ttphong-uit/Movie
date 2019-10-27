@@ -1,0 +1,26 @@
+<div class="list-ghe">
+  <div class="count-down">
+    <div class="theather-info" *ngIf="dataLichChieu">
+      <small>Rạp đang chọn</small>
+      <p class="Rap-dang-chon">{{ dataLichChieu.thongTinPhim.diaChi }}</p>
+    </div>
+    <div class="holding-seat-time">
+      <small>Thời gian giữ ghế</small> <br />
+      <countdown
+        class="remaining-time"
+        (event)="handleEvent($event)"
+        [config]="{ leftTime: 300, format: 'm:ss' }"
+      >
+      </countdown>
+    </div>
+  </div>
+  <div class="screen">
+    <p>SCREEN</p>
+  </div>
+  <ng-container *ngIf="danhSachGhe">
+    <ng-container *ngFor="let item of danhSachGhe; let index = index">
+      <app-item-ghe [ghe]="item"></app-item-ghe>
+      <br *ngIf="(index + 1) % 16 === 0" />
+    </ng-container>
+  </ng-container>
+</div>

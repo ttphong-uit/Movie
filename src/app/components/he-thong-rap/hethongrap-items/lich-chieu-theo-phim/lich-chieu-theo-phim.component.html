@@ -1,0 +1,58 @@
+<ul
+  class="nav nav-tabs lich-chieu-theo-phim style-7"
+  *ngIf="mangNgay.length"
+  id="myTab"
+  role="tablist"
+>
+  <li class="nav-item col-2" *ngFor="let item of mangNgay; let index = index">
+    <a
+      class="nav-link lich-chieu-theo-phim_a"
+      [ngClass]="{ active: index === 0 }"
+      id="home-tab"
+      data-toggle="tab"
+      href="#ngay_{{ chiso }}{{ chiso1 }}{{ index }}"
+      role="tab"
+      aria-controls="home"
+      aria-selected="true"
+    >
+      <span class="d-block">{{ item | date: "EEEE" }}</span>
+      <span class="date">{{ item | date: "dd-MM" }}</span>
+    </a>
+  </li>
+</ul>
+<ng-container *ngIf="mangNgay.length">
+  <div
+    class="tab-content "
+    [ngClass]="{ 'lich-chieu-theo-phimcontent': true }"
+    id="myTabContent"
+  >
+    <div
+      class="tab-pane fade show"
+      [ngClass]="{ active: index === 0 }"
+      id="ngay_{{ chiso }}{{ chiso1 }}{{ index }}"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+      *ngFor="let item of mangNgay; let index = index"
+    >
+      <div class="suat-chieu">
+        <div class="img-2d">
+          <img src="./assets/img/2D.png" alt="" />
+        </div>
+        <div class="gio-chieu">
+          <ng-container *ngFor="let i of mangPhim">
+            <div *ngFor="let j of i" class="col-2">
+              <p
+                class="gio__chieu"
+                *ngIf="item === j.ngayChieuGioChieu.slice(0, 10)"
+                (click)="goToBuyTicket(j.maLichChieu)"
+              >
+                {{ j.ngayChieuGioChieu | date: "hh:mm" }}
+              </p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<P class="err_massage" *ngIf="!mangNgay.length">Hiện Tại Không Có Lịch Chiếu</P>
